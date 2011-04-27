@@ -6,7 +6,7 @@ import bottle
 bottle.debug(False)
 
 from bottle import route, run, request, response, template
-from gitmark import gitMark
+from gitmark import gitmark
 import settings
 
 @route("/")
