@@ -45,6 +45,7 @@ def process_gitmarks_cmd(opts, args):
         g = gitmark(arg,settings.USER_NAME)
         if 'tags' in opts.keys():           g.addTags(opts['tags'])
         if 'private' in opts.keys():        g.setPrivacy(opts['private'])
+        if 'msg' in opts.keys():            g.addMsg(opts['msg'])
 
         # -- get content, and autogen title 
         if canHazWebs():
@@ -181,8 +182,7 @@ def addToPublicRepo(gitmarksObj, doPush = True):
         
     #TOOD: do something about committing our changes
     print "git commit (local)? Don't mind if i do...."
-    
-    gitmark.gitCommit(msg, gitmarksBaseDir )
+    gitmark.gitCommit(gitmarksObj.msg, gitmarksBaseDir )
 
     if doPush:
         print "git push (external)? Don't mind if i do...."
